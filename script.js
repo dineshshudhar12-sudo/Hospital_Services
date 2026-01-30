@@ -1,25 +1,43 @@
-// Registration
-document.getElementById("registerForm").addEventListener("submit", e => {
-  e.preventDefault();
-  alert("🎉 Patient Registered Successfully!");
-});
+function validateRegistration() {
+    if (
+        name.value === "" ||
+        age.value === "" ||
+        contact.value === "" ||
+        email.value === ""
+    ) {
+        alert("All fields required");
+        return false;
+    }
+    alert("Registration Successful");
+    return true;
+}
 
-// Doctor Search
-document.getElementById("searchDoctor").addEventListener("keyup", function () {
-  let val = this.value.toLowerCase();
-  document.querySelectorAll("table tr").forEach((row, i) => {
-    if (i === 0) return;
-    row.style.display = row.innerText.toLowerCase().includes(val)
-      ? ""
-      : "none";
-  });
-});
+function filterDoctors() {
+    let filter = search.value.toLowerCase();
+    let rows = doctorTable.getElementsByTagName("tr");
 
-// Rating
-function rate(n) {
-  document.querySelectorAll(".stars span").forEach((s, i) => {
-    s.style.color = i < n ? "gold" : "gray";
-  });
-  document.getElementById("ratingText").innerText =
-    `You rated ${n} stars`;
+    for (let row of rows) {
+        let spec = row.cells[1].innerText.toLowerCase();
+        row.style.display = spec.includes(filter) ? "" : "none";
+    }
+}
+
+function sortTable(col) {
+    let table = medicineTable;
+    let rows = Array.from(table.rows);
+    rows.sort((a, b) => a.cells[col].innerText.localeCompare(b.cells[col].innerText));
+    rows.forEach(row => table.appendChild(row));
+}
+
+function validateLogin() {
+    if (username.value === "admin" && password.value === "admin123") {
+        alert("Login Successful");
+        return false;
+    }
+    alert("Invalid Credentials");
+    return false;
+}
+
+function rate(stars) {
+    ratingResult.innerText = `You rated ${stars} stars`;
 }
