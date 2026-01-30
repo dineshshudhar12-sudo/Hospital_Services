@@ -1,43 +1,34 @@
-function validateRegistration() {
-    if (
-        name.value === "" ||
-        age.value === "" ||
-        contact.value === "" ||
-        email.value === ""
-    ) {
-        alert("All fields required");
-        return false;
-    }
-    alert("Registration Successful");
-    return true;
-}
 
-function filterDoctors() {
-    let filter = search.value.toLowerCase();
-    let rows = doctorTable.getElementsByTagName("tr");
+// Doctor search
+document.getElementById("searchDoctor").addEventListener("keyup", function () {
+  let filter = this.value.toLowerCase();
+  let rows = document.querySelectorAll("#doctorTable tr");
+  rows.forEach(row => {
+    let text = row.innerText.toLowerCase();
+    row.style.display = text.includes(filter) ? "" : "none";
+  });
+});
 
-    for (let row of rows) {
-        let spec = row.cells[1].innerText.toLowerCase();
-        row.style.display = spec.includes(filter) ? "" : "none";
-    }
-}
-
+// Table sort
 function sortTable(col) {
-    let table = medicineTable;
-    let rows = Array.from(table.rows);
-    rows.sort((a, b) => a.cells[col].innerText.localeCompare(b.cells[col].innerText));
-    rows.forEach(row => table.appendChild(row));
+  let table = document.getElementById("medicineTable");
+  let rows = Array.from(table.rows).slice(1);
+  rows.sort((a, b) =>
+    a.cells[col].innerText.localeCompare(b.cells[col].innerText, undefined, {numeric: true})
+  );
+  rows.forEach(row => table.appendChild(row));
 }
 
-function validateLogin() {
-    if (username.value === "admin" && password.value === "admin123") {
-        alert("Login Successful");
-        return false;
-    }
-    alert("Invalid Credentials");
-    return false;
-}
-
+// Rating
 function rate(stars) {
-    ratingResult.innerText = `You rated ${stars} stars`;
+  document.querySelectorAll(".stars span").forEach((s, i) => {
+    s.style.color = i < stars ? "gold" : "gray";
+  });
+  document.getElementById("ratingText").innerText = `You rated ${stars} stars`;
 }
+
+// Form validation alert
+document.getElementById("registerForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  alert("Patient Registered Successfully!");
+});
