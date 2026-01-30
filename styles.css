@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+}
+
+header {
+  background: #0a5ed7;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.banner {
+  background: linear-gradient(to right, #0a5ed7, #38bdf8);
+  color: white;
+  text-align: center;
+  padding: 60px;
+}
+
+.card {
+  background: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+input, button {
+  padding: 10px;
+  margin: 5px;
+  width: 90%;
+}
+
+button {
+  background: #0a5ed7;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+th {
+  background: #e2e8f0;
+  cursor: pointer;
+}
+
+.stars span {
+  font-size: 30px;
+  cursor: pointer;
+  color: gray;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #0a5ed7;
+  color: white;
+}
