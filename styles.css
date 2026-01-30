@@ -1,68 +1,75 @@
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
 }
 
 header {
-    background: #0b5ed7;
-    color: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
+  background: #0a5ed7;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
 }
 
 .banner {
-    background: #cfe2ff;
-    text-align: center;
-    padding: 60px;
+  background: linear-gradient(to right, #0a5ed7, #38bdf8);
+  color: white;
+  text-align: center;
+  padding: 60px;
 }
 
-section {
-    padding: 20px;
+.card {
+  background: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 input, button {
-    display: block;
-    margin: 10px 0;
-    padding: 8px;
+  padding: 10px;
+  margin: 5px;
+  width: 90%;
+}
+
+button {
+  background: #0a5ed7;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 th, td {
-    border: 1px solid gray;
-    padding: 8px;
+  border: 1px solid #ddd;
+  padding: 10px;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
-    gap: 10px;
-}
-
-.service {
-    background: #e9ecef;
-    padding: 20px;
-    text-align: center;
-}
-
-iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
+th {
+  background: #e2e8f0;
+  cursor: pointer;
 }
 
 .stars span {
-    font-size: 30px;
-    cursor: pointer;
-    color: gray;
+  font-size: 30px;
+  cursor: pointer;
+  color: gray;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #0a5ed7;
+  color: white;
 }
