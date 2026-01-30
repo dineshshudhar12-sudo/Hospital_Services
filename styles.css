@@ -1,78 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f9;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
 }
 
-header {
-    background: #0a5ed7;
-    color: white;
-    padding: 15px;
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  z-index: 100;
 }
 
-header h1 {
-    margin: 0;
+.navbar a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-nav a {
-    color: white;
-    margin-right: 15px;
-    text-decoration: none;
+.navbar a:hover {
+  color: #38bdf8;
 }
 
-.banner {
-    background: linear-gradient(to right, #0a5ed7, #38bdf8);
-    color: white;
-    text-align: center;
-    padding: 50px;
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.section {
-    background: white;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 8px;
+.hero-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  background: #38bdf8;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  transform: scale(1.1);
+}
+
+/* GLASS CARD */
+.glass {
+  width: 80%;
+  margin: 100px auto;
+  padding: 30px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(15px);
+  animation: slideUp 1s ease forwards;
 }
 
 input, button {
-    padding: 10px;
-    margin: 5px 0;
-    width: 100%;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
 }
 
 button {
-    background: #0a5ed7;
-    color: white;
-    border: none;
-    cursor: pointer;
+  background: #38bdf8;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
+button:hover {
+  background: #0ea5e9;
+}
+
+/* TABLE */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
+  width: 100%;
+  margin-top: 10px;
 }
 
 th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
+  padding: 10px;
+  text-align: center;
 }
 
-th {
-    background: #e2e8f0;
-    cursor: pointer;
-}
-
+/* STARS */
 .stars span {
-    font-size: 30px;
-    cursor: pointer;
-    color: gray;
+  font-size: 35px;
+  cursor: pointer;
+  color: gray;
+}
+
+/* ANIMATIONS */
+.fade-in {
+  animation: fade 1.5s ease forwards;
+}
+
+.delay {
+  animation-delay: 0.5s;
+}
+
+@keyframes fade {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideUp {
+  from {opacity: 0; transform: translateY(50px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 
 footer {
-    background: #0a5ed7;
-    color: white;
-    text-align: center;
-    padding: 10px;
+  text-align: center;
+  padding: 20px;
 }
-
