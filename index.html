@@ -1,79 +1,135 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SmartCare Hospital</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>City Care Hospital</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- NAVBAR -->
-<header class="navbar">
-  <h1>🏥 SmartCare</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#register">Register</a>
-    <a href="#doctors">Doctors</a>
-    <a href="#appointment">Appointment</a>
-    <a href="#feedback">Feedback</a>
-  </nav>
+<header>
+    <div class="logo">🏥 City Care Hospital</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#register">Register</a>
+        <a href="#doctors">Doctors</a>
+        <a href="#appointment">Appointment</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#login">Login</a>
+        <a href="#feedback">Feedback</a>
+    </nav>
 </header>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <h2 class="fade-in">Advanced Hospital Management System</h2>
-  <p class="fade-in delay">Smart • Secure • Fast Healthcare</p>
-  <button class="hero-btn">Get Started</button>
+<!-- HOME -->
+<section id="home" class="banner">
+    <h1>Welcome to City Care Hospital</h1>
+    <p>Your Health, Our Priority</p>
 </section>
 
-<!-- REGISTER -->
-<section id="register" class="glass slide-up">
-  <h2>Patient Registration</h2>
-  <form id="registerForm">
-    <input type="text" placeholder="Full Name" required>
-    <input type="number" placeholder="Age" required>
-    <input type="tel" placeholder="Contact" required>
-    <input type="email" placeholder="Email" required>
-    <button>Register</button>
-  </form>
+<!-- PATIENT REGISTRATION -->
+<section id="register">
+    <h2>Patient Registration</h2>
+    <form onsubmit="return validateRegistration()">
+        <input type="text" id="name" placeholder="Name">
+        <input type="number" id="age" placeholder="Age">
+        <input type="text" id="contact" placeholder="Contact Number">
+        <input type="email" id="email" placeholder="Email">
+        <button type="submit">Register</button>
+    </form>
 </section>
 
-<!-- DOCTORS -->
-<section id="doctors" class="glass slide-up">
-  <h2>Doctor Availability</h2>
-  <input id="searchDoctor" placeholder="Search specialization">
-  <table>
-    <tr><th>Name</th><th>Specialization</th><th>Time</th></tr>
-    <tr><td>Dr. Kumar</td><td>Cardiology</td><td>9AM–1PM</td></tr>
-    <tr><td>Dr. Meena</td><td>Neurology</td><td>2PM–6PM</td></tr>
-    <tr><td>Dr. Ravi</td><td>Orthopedic</td><td>10AM–3PM</td></tr>
-  </table>
+<!-- DOCTOR SCHEDULE + SEARCH -->
+<section id="doctors">
+    <h2>Doctor Schedule</h2>
+
+    <input type="text" id="search" placeholder="Search by specialization" onkeyup="filterDoctors()">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Specialization</th>
+                <th>Available Time</th>
+            </tr>
+        </thead>
+        <tbody id="doctorTable">
+            <tr><td>Dr. Kumar</td><td>Cardiology</td><td>10AM - 1PM</td></tr>
+            <tr><td>Dr. Priya</td><td>Neurology</td><td>2PM - 5PM</td></tr>
+            <tr><td>Dr. Arun</td><td>Orthopedic</td><td>9AM - 12PM</td></tr>
+        </tbody>
+    </table>
 </section>
 
 <!-- APPOINTMENT -->
-<section id="appointment" class="glass slide-up">
-  <h2>Book Appointment</h2>
-  <input type="date">
-  <input type="time">
-  <button>Book Now</button>
+<section id="appointment">
+    <h2>Book Appointment</h2>
+    <form>
+        <input type="date">
+        <input type="time">
+        <button type="submit">Book</button>
+    </form>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="grid">
+    <h2>Hospital Services</h2>
+    <div class="service">Emergency</div>
+    <div class="service">ICU</div>
+    <div class="service">Pharmacy</div>
+    <div class="service">Laboratory</div>
+</section>
+
+<!-- MEDICINE INVENTORY -->
+<section>
+    <h2>Medicine Inventory</h2>
+    <table>
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Medicine</th>
+                <th onclick="sortTable(1)">Quantity</th>
+            </tr>
+        </thead>
+        <tbody id="medicineTable">
+            <tr><td>Paracetamol</td><td>120</td></tr>
+            <tr><td>Amoxicillin</td><td>60</td></tr>
+            <tr><td>Insulin</td><td>30</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <iframe 
+        src="https://www.google.com/maps?q=chennai&output=embed">
+    </iframe>
+</section>
+
+<!-- LOGIN -->
+<section id="login">
+    <h2>Staff Login</h2>
+    <form onsubmit="return validateLogin()">
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
 </section>
 
 <!-- FEEDBACK -->
-<section id="feedback" class="glass slide-up">
-  <h2>Feedback</h2>
-  <div class="stars">
-    <span onclick="rate(1)">★</span>
-    <span onclick="rate(2)">★</span>
-    <span onclick="rate(3)">★</span>
-    <span onclick="rate(4)">★</span>
-    <span onclick="rate(5)">★</span>
-  </div>
-  <p id="ratingText"></p>
+<section id="feedback">
+    <h2>Patient Feedback</h2>
+    <div class="stars">
+        <span onclick="rate(1)">★</span>
+        <span onclick="rate(2)">★</span>
+        <span onclick="rate(3)">★</span>
+        <span onclick="rate(4)">★</span>
+        <span onclick="rate(5)">★</span>
+    </div>
+    <p id="ratingResult"></p>
 </section>
-
-<footer>
-  © 2026 SmartCare Hospital | Animated Web Project
-</footer>
 
 <script src="script.js"></script>
 </body>
